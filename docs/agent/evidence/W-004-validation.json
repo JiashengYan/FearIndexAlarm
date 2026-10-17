@@ -1,0 +1,18 @@
+﻿{
+    "worklog":  "W-004",
+    "checked_utc":  "2026-10-16T21:05:39.3904478Z",
+    "default_interval_seconds":  900,
+    "persisted_intervals_preserved":  true,
+    "windows_core_checks":  34,
+    "android_unit_tests":  "PASS (live probe skipped)",
+    "android_lint":  "No issues found.",
+    "windows_publish":  "PASS self-contained win-x64",
+    "android_build":  "PASS assembleDebug",
+    "apk_signature":  "PASS",
+    "exe_sha256":  "E78B1AA32AFBE63BEAED297A4BB9F1DA7B4D8DD98056651D351790713B1CF1E2",
+    "windows_zip_sha256":  "AA19575DCFDEC07B6E23C13ED89B760DB1A0F0AB3A987532BBB9FAC73F38EDB7",
+    "android_apk_sha256":  "74CDC9E044FC9B5DC42F0E9FE5304A21DCDB4DD367799B85DA18BFE8DEA6F04F",
+    "refreshed_default_windows_output":  true,
+    "active_monitor_at_copy_check":  false,
+    "stopped_any_user_process":  false
+}

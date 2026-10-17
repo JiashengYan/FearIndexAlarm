@@ -1,0 +1,9 @@
+﻿{
+    "worklog":  "W-002",
+    "checked_utc":  "2026-10-16T20:38:43.5342485Z",
+    "refreshed_default_windows_output":  true,
+    "staged_exe_sha256":  "8C8005E065F1325EE61F63DBB2B229D4851D22D8ECD38072584C6744672B4BB9",
+    "default_exe_sha256":  "8C8005E065F1325EE61F63DBB2B229D4851D22D8ECD38072584C6744672B4BB9",
+    "stopped_any_process":  false,
+    "zip_contains_staged_exe_verified":  true
+}

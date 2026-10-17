@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets/stock-alert.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../FearIndexAlarm.Core/FearIndexAlarm.Core.csproj" /></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets/stock-alert.ico" LogicalName="FearIndexAlarm.StockAlert.ico" />
+  </ItemGroup>
+</Project>

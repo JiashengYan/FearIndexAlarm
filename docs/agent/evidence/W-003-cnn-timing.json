@@ -1,0 +1,56 @@
+[
+  {
+    "mode": "default",
+    "received_utc": "2026-10-16T20:45:20.5342580+00:00",
+    "request_ms": 161,
+    "status": 200,
+    "score": 17.9383219954649,
+    "raw_source_timestamp": "2026-10-16T20:27:55+00:00",
+    "source_utc": "2026-10-16T20:27:55.0000000+00:00",
+    "source_age_seconds": 1045.5,
+    "server_date": "Fri, 16 Oct 2026 20:45:20 GMT",
+    "cache_age": "110",
+    "cache_control": "max-age=5",
+    "x_cache": "HIT, HIT",
+    "component_timestamps": {
+      "fear_and_greed": "2026-10-16T20:27:55+00:00",
+      "fear_and_greed_historical": 1792182475000.0,
+      "market_momentum_sp500": 1792182001000.0,
+      "market_momentum_sp125": 1792182001000.0,
+      "stock_price_strength": 1792182475000.0,
+      "stock_price_breadth": 1792182475000.0,
+      "put_call_options": 1792181955000.0,
+      "market_volatility_vix": 1792181701000.0,
+      "market_volatility_vix_50": 1792181701000.0,
+      "junk_bond_demand": 1792181400000.0,
+      "safe_haven_demand": 1792180799000.0
+    }
+  },
+  {
+    "mode": "revalidate",
+    "received_utc": "2026-10-16T20:45:20.6412410+00:00",
+    "request_ms": 45,
+    "status": 200,
+    "score": 17.9383219954649,
+    "raw_source_timestamp": "2026-10-16T20:27:55+00:00",
+    "source_utc": "2026-10-16T20:27:55.0000000+00:00",
+    "source_age_seconds": 1045.6,
+    "server_date": "Fri, 16 Oct 2026 20:45:20 GMT",
+    "cache_age": "110",
+    "cache_control": "max-age=5",
+    "x_cache": "HIT, HIT",
+    "component_timestamps": {
+      "fear_and_greed": "2026-10-16T20:27:55+00:00",
+      "fear_and_greed_historical": 1792182475000.0,
+      "market_momentum_sp500": 1792182001000.0,
+      "market_momentum_sp125": 1792182001000.0,
+      "stock_price_strength": 1792182475000.0,
+      "stock_price_breadth": 1792182475000.0,
+      "put_call_options": 1792181955000.0,
+      "market_volatility_vix": 1792181701000.0,
+      "market_volatility_vix_50": 1792181701000.0,
+      "junk_bond_demand": 1792181400000.0,
+      "safe_haven_demand": 1792180799000.0
+    }
+  }
+]

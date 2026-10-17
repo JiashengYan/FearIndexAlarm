@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Stock market alert: falling chart and warning triangle">
+  <rect x="4" y="4" width="248" height="248" rx="52" fill="#102B38"/>
+  <polyline points="36,202 218,202" fill="none" stroke="#244654" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="40" y="146" width="20" height="55" rx="4" fill="#245F66"/>
+  <rect x="77" y="128" width="20" height="73" rx="4" fill="#245F66"/>
+  <rect x="114" y="157" width="20" height="44" rx="4" fill="#245F66"/>
+  <polyline points="43,65 83,108 114,85 151,123" fill="none" stroke="#80F2CC" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="130,123 151,123 151,102" fill="none" stroke="#80F2CC" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="182,113 241,218 123,218" fill="#FFC34D"/>
+  <polyline points="182,149 182,181" fill="none" stroke="#102B38" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="182" cy="201" r="7" fill="#102B38"/>
+</svg>

@@ -1,0 +1,40 @@
+{
+  "worklog": "W-006",
+  "checked_utc": "2026-10-16T21:20:15.925516Z",
+  "latest_windows_build": "W-004 (15 minute default)",
+  "retained_executable": "artifacts/windows/FearIndexAlarm.exe",
+  "exe_sha256": "E78B1AA32AFBE63BEAED297A4BB9F1DA7B4D8DD98056651D351790713B1CF1E2",
+  "windows_zip_sha256": "AA19575DCFDEC07B6E23C13ED89B760DB1A0F0AB3A987532BBB9FAC73F38EDB7",
+  "android_apk_sha256": "367FA4FF6285CB61BA0F7E6B57D9AE2FAD1F3D96CAFD0CEED0ADEDA088C986B3",
+  "active_monitor_count": 0,
+  "process_inspection": "Get-CimInstance denied; Get-Process succeeded",
+  "user_processes_stopped": false,
+  "user_runtime_state_modified": false,
+  "removed": [
+    {
+      "path": "artifacts/windows-15min",
+      "bytes": 116296654
+    },
+    {
+      "path": "artifacts/windows-gui",
+      "bytes": 116296654
+    },
+    {
+      "path": "artifacts/windows-icon",
+      "bytes": 116287130
+    },
+    {
+      "path": "artifacts/windows-gui-preview",
+      "bytes": 257376
+    },
+    {
+      "path": "artifacts/stock-alert-exe-icon.png",
+      "bytes": 1828
+    },
+    {
+      "path": "artifacts/stock-alert-preview.png",
+      "bytes": 43096
+    }
+  ],
+  "removed_bytes": 349182738
+}

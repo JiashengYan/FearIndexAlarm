@@ -1,0 +1,40 @@
+{
+  "worklog": "W-007",
+  "checked_utc": "2026-10-17T15:16:07.702184+00:00",
+  "privacy_redaction_authorized_by_user": true,
+  "historical_records_redacted_not_revalidated_as_original_bytes": true,
+  "historical_test_results_and_artifact_checksums_preserved": true,
+  "private_context_ignored_and_excluded_from_public_file_selection": true,
+  "public_scan_before_new_evidence_and_final_manifest": {
+    "file_count": 67,
+    "findings": []
+  },
+  "public_source_copy_without_private_context": {
+    "file_count": 67,
+    "checker_passed": true,
+    "python_tests_passed": 6,
+    "public_handoff_present": true
+  },
+  "windows_checks": 34,
+  "android_unit_tests_passed": 10,
+  "android_optional_live_tests_skipped": 1,
+  "android_lint": "No issues found.",
+  "python_tests_passed": 6,
+  "diagnostic_powershell_syntax": "PASS (no network request)",
+  "android_build": "PASS assembleDebug",
+  "apk_signature": "PASS v2",
+  "android_version": "0.2.1",
+  "android_version_code": 3,
+  "apk_known_private_marker_scan": "PASS decompressed entries (heuristic only)",
+  "android_apk_sha256": "67F6DA09532F8ABACBBF969C3C970ECAFE109629E07349B53A8430FD5681B75B",
+  "unchanged_windows_zip_sha256": "AA19575DCFDEC07B6E23C13ED89B760DB1A0F0AB3A987532BBB9FAC73F38EDB7",
+  "main_git_repository_initialized": false,
+  "git_commit_or_upload_performed": false,
+  "user_processes_stopped_or_runtime_state_modified": false,
+  "boundaries": [
+    "Working-tree source selection, not staged blob/history or author-metadata certification",
+    "Ignored local tools/cache/PDB/runtime files remain private and are not safe to manually upload as a whole directory",
+    "No physical-device or battery validation",
+    "Heuristic scans cannot guarantee absence of every possible private value"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "worklog": "W-005",
+  "last_artifact_verification_utc": "2026-10-16T21:16:23Z",
+  "commands": {
+    ".\\test.ps1": "PASS final source: Windows 34 checks; Android 10 passed, 1 optional live test skipped; lint No issues found.",
+    ".\\build.ps1 -Target Android": "PASS final source assembleDebug and artifact copy",
+    "apksigner verify --verbose --print-certs artifacts/FearIndexAlarm-debug.apk": "PASS v2 signature",
+    "aapt dump badging and xmltree": "com.fearindexalarm versionCode=2 versionName=0.2.0 min26 target35, SCHEDULE_EXACT_ALARM and MonitorAlarmReceiver present",
+    "adb devices": "No connected devices"
+  },
+  "scheduler_unit_tests": {
+    "passed": 7,
+    "coverage": [
+      "exact permission preferred",
+      "missing permission inexact fallback",
+      "revoke-after-check SecurityException fallback",
+      "other exceptions propagate",
+      "initial and saved elapsed deadline",
+      "snooze and resume",
+      "late wake phase preservation and missed-slot skipping"
+    ],
+    "boundary": "Pure JVM helper tests; not Android AlarmManager, service lifecycle, persistence integration or wake-lock tests"
+  },
+  "android_apk_sha256": "367FA4FF6285CB61BA0F7E6B57D9AE2FAD1F3D96CAFD0CEED0ADEDA088C986B3",
+  "copied_apk_matches_build_output": true,
+  "debug_signer_certificate_sha256": "73ce9a4d1ed401154688badd694feaca469d68b3dc3c7cde01b036a7778e2989",
+  "unchanged_windows_zip_sha256": "AA19575DCFDEC07B6E23C13ED89B760DB1A0F0AB3A987532BBB9FAC73F38EDB7",
+  "default_interval_seconds": 900,
+  "default_continuous_awake": false,
+  "persisted_task_intervals_and_baselines_preserved": true,
+  "old_reliable_preference_superseded": true,
+  "request_and_alert_rules_changed": false,
+  "physical_or_emulator_runtime_tested": false,
+  "screen_off_timing_or_power_saving_measured": false,
+  "external_live_probe_run": false,
+  "user_processes_stopped_or_runtime_state_edited": false
+}

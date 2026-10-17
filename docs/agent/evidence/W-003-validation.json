@@ -1,0 +1,19 @@
+﻿{
+    "worklog":  "W-003",
+    "checked_utc":  "2026-10-16T20:52:47.2044433Z",
+    "windows_core_checks":  34,
+    "windows_core_result":  "PASS",
+    "windows_publish":  "PASS Release self-contained win-x64",
+    "actual_mainform_preview":  "PASS red/green/stale/empty + narrow resize without horizontal scroll",
+    "preview_uses_synthetic_state":  true,
+    "preview_started_real_monitor":  false,
+    "staged_exe":  "artifacts/windows-gui/FearIndexAlarm.exe",
+    "staged_exe_sha256":  "7287DC65440889DD36772E2F28AACC24A28FC6382F04141CA7E02897BAB13EBC",
+    "zip_sha256":  "21A75B97D3BFB177F20B85111BC05599624F181D299828E4ADEC7B34874E41A3",
+    "android_apk_sha256":  "C5243E9F63FFD432C0D04771CA084FEBEAEFD7EE110474A35450002503CE0FD7",
+    "refreshed_default_output":  false,
+    "stopped_any_user_process":  false,
+    "default_process_running":  true,
+    "real_system_notification_tested":  false,
+    "physical_android_tested":  false
+}

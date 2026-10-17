@@ -1,0 +1,32 @@
+﻿{
+    "worklog":  "W-002",
+    "checked_utc":  "2026-10-16T20:37:45.1084086Z",
+    "windows_core_checks":  34,
+    "windows_core_result":  "PASS",
+    "windows_publish":  "PASS Release self-contained win-x64",
+    "embedded_resource_name":  "FearIndexAlarm.StockAlert.ico",
+    "embedded_icon_sha256":  "63157E0D8B5E9106B0C580D5B1A043320191BE22C5FBCB253892162869E127F6",
+    "embedded_matches_source":  true,
+    "shell_icon_extracted":  true,
+    "shell_icon_size":  [
+                            32,
+                            32
+                        ],
+    "source_icon_sizes":  [
+                              16,
+                              20,
+                              24,
+                              32,
+                              40,
+                              48,
+                              64,
+                              128,
+                              256
+                          ],
+    "exe_sha256":  "8C8005E065F1325EE61F63DBB2B229D4851D22D8ECD38072584C6744672B4BB9",
+    "zip_sha256":  "099C0DA47FB847403ACDACECF5283E14406308199EC49B841059B3447498B6FE",
+    "android_apk_sha256":  "C5243E9F63FFD432C0D04771CA084FEBEAEFD7EE110474A35450002503CE0FD7",
+    "output_directory":  "artifacts/windows-icon",
+    "live_ui_tested":  false,
+    "physical_android_tested":  false
+}
