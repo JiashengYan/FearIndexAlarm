@@ -1,0 +1,27 @@
+{
+  "worklog": "W-012",
+  "verified_utc": "2026-10-19T17:19:41.160957+00:00",
+  "restored_from": ".tools/deploy-w011/web",
+  "files": [
+    {
+      "path": "web/package.json",
+      "sha256": "d1bf6bf607005102c300b08e31a79a07f9a16e10f2e92b0b1d64279d93152b88"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "4c37286d618b090778fbe4017c9526a67254372825e896ef1858f5f000a5befb"
+    }
+  ],
+  "checks": [
+    "Package and lock hashes match previous W-011 delivery.",
+    "Manifest direct dependency pins match lock root and resolved entries.",
+    "All web/shared source matches prior validated isolated copy after CRLF/LF normalization (28 newline-only differences).",
+    "Isolated npm run typecheck: PASS.",
+    "Main npm ci: PASS, 29 packages; restored missing local compiler executable."
+  ],
+  "historical_validation": "W-011 clean install, default Turbopack build and 30 tests passed in this conversation. Deleted public W-011 records are not recreated or claimed to remain available.",
+  "boundaries": [
+    "No fresh production build, remote deployment, live upstream or browser checks.",
+    "No process stopped; no runtime state or .next output overwritten."
+  ]
+}

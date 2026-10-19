@@ -363,3 +363,30 @@ artifacts_and_boundaries:
 - No production build, ZIP update, live API, browser extension reproduction or native checks. W-009 artifacts remain historical and do not contain this change.
 - References: https://nextjs.org/docs/messages/react-hydration-error and https://github.com/vercel/next.js/discussions/72035 .
 - Next action: reload the development page; disable ColorZilla for the site to eliminate its DOM injection. Browser confirmation remains outstanding.
+
+## W-012 — recover accidentally removed dependency fix
+
+status: closed
+date: 2026-10-19T17:19:41Z (UTC)
+request: user accidentally deleted the preceding changes; recover them
+
+changes_and_decisions:
+- Initial working tree was clean, package.json reverted to TypeScript5.9.0, lockfile to the old caret specifications, PROJECT_STATE/WORKLOG ended at W-010, and W-011 evidence/manifest were absent.
+- Restored web/package.json and web/package-lock.json from the surviving .tools/deploy-w011/web copy. Both SHA256 values match the W-011 values recorded in this conversation. No unrelated application edits.
+- Record recovery under W-012 rather than fabricate original timestamps/content for deleted immutable W-011 evidence/manifests. Updated current PROJECT_STATE.
+- Main web/node_modules existed but its tsc executable was missing. Reinstalled dependencies to restore local development tooling; no process stopped and no runtime state or .next output replaced.
+
+validation_and_commands:
+- Copy-Item restored only the two package files. Python verified both hashes and every direct dependency's exact version against lock root/resolved entries.
+- Initial raw full-source comparison differed at dashboard.tsx; follow-up found only CRLF/LF differences in 28 files, no substantive web/shared changes relative to the previously built W-011 copy (excluding generated next-env.d.ts).
+- `npm run typecheck` in .tools/deploy-w011/web: PASS.
+- Initial `npm --prefix web run typecheck`: failed because tsc was absent, not due to a TypeScript error.
+- From web with NODE_TLS_REJECT_UNAUTHORIZED=1: `npm ci --no-audit --registry=https://registry.npmjs.org --cache=../.tools/deploy-w011/.tools/npm-cache`: PASS, 29 packages; subsequent `npm --prefix web run typecheck`: PASS.
+- Final `git diff --check`, `python tools/snapshot_sources.py W-012`, `python tools/check_public_files.py` for recovery delivery. No staging, commit or push.
+
+artifacts_and_boundaries:
+- web/package.json SHA256 d1bf6bf607005102c300b08e31a79a07f9a16e10f2e92b0b1d64279d93152b88.
+- web/package-lock.json SHA256 4c37286d618b090778fbe4017c9526a67254372825e896ef1858f5f000a5befb.
+- docs/agent/evidence/W-012-recovery.json; docs/agent/manifests/W-012-sources.json. No new production artifact or archive.
+- Prior W-011 clean installation/default Turbopack build/30 tests passed in this conversation; these are historical results for the matching source, not newly repeated W-012 checks. Deleted W-011 public evidence is unavailable. Remote deployment/CNN, browser/native runtime checks not performed.
+- Next action: commit/push both restored dependency files and deploy the new main commit on Vercel with Root Directory web.

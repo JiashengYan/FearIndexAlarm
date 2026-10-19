@@ -1,7 +1,7 @@
 # PROJECT_STATE
 
 updated: 2026-10-19
-latest_worklog: W-010 (body-only hydration warning compatibility for browser extension attributes)
+latest_worklog: W-012 (recover accidentally reverted W-011 dependency fix)
 purpose: agent resume context; not end-user documentation
 root: .
 version_control_at_last_inspection: .git repository exists at W-008 inspection; no commit/staging/publication performed in W-008; do not infer commits from worklog IDs
@@ -22,6 +22,7 @@ version_control_at_last_inspection: .git repository exists at W-008 inspection; 
 ## Current implementation / map
 
 Web (W-008 implementation, W-009 structure):
+- W-012 recovers W-011 after accidental removal of its uncommitted changes and evidence. TypeScript is pinned to 5.9.3; package-lock matches all existing exact dependency pins. Restored package files hash-identically match `.tools/deploy-w011/web`, whose clean install, default Turbopack build and 30 tests passed during W-011; fresh W-012 source comparison (CRLF/LF normalized) and isolated typecheck passed. Main web node_modules had no tsc executable; npm ci restored dependencies and main typecheck then passed. W-011 public worklog/evidence/manifest were removed and are not recreated as originals. Current recovery evidence/manifest use W-012. User is attempting Vercel hosting with root `web`/branch `main`, extending the initial local-only hosting scope; remote deployment and cloud CNN access remain unverified. Push both package files before deploying the new commit. W-009 ZIP excludes these fixes.
 - W-010: `web/app/layout.tsx` uses `suppressHydrationWarning` on body to tolerate extension-injected attributes such as ColorZilla's `cz-shortcut-listen`. This suppresses warnings at that element, not extension injection or descendant mismatches. Typecheck passed; no browser extension reproduction or production rebuild. W-009 build/ZIP remain historical artifacts and exclude this change; W-010 source manifest/evidence identify the current source.
 - `web/app/actions.ts` exports `readMarketAction` with `use server`; fixed public CNN HTTPS fetch in `web/lib/cnn.ts`, no caller URL/user state/credentials, no-store, redirect:error, 20s timeout, 2 MB body cap. Returns typed success/error; no fake-data fallback. Build has no upstream dependency. Latest live Next.js browser request succeeded; future upstream access not guaranteed.
 - `web/lib/market.ts` ports existing displayed-integer/freshness/order/duplicate rules and validates CNN current/history/comparisons. `web/lib/monitor.ts` validates persisted state and computes bounded events (200). Node built-in test suite runs all existing 23 shared CSV cases plus 7 transport/parser/state tests.
