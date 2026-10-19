@@ -52,9 +52,18 @@ class PublicationBoundaryTest(TestCase):
             (root / "AGENTS.md").write_text("public instructions", encoding="utf-8")
             (root / ".gitignore").write_text("agent.md\nprivate-settings.config\n.tools/\n", encoding="utf-8")
             (root / "private-settings.config").write_text("local configuration", encoding="utf-8")
+            (root / "web").mkdir()
+            for name in ("page.tsx", "rules.ts", "styles.css", "helper.mjs", "package-lock.json", ".npmrc"):
+                (root / "web" / name).write_text("source", encoding="utf-8")
+            for name in ("node_modules", ".next"):
+                (root / "web" / name).mkdir()
+                (root / "web" / name / "generated.json").write_text("generated", encoding="utf-8")
             with mock.patch.object(snapshot_sources, "ROOT", root), mock.patch("sys.argv", ["snapshot_sources.py", "W-999"]), contextlib.redirect_stdout(io.StringIO()):
                 snapshot_sources.main()
             text = (root / "docs/agent/manifests/W-999-sources.json").read_text(encoding="utf-8")
             self.assertNotIn('"path": "agent.md"', text)
             self.assertIn('"path": "AGENTS.md"', text)
             self.assertNotIn('"path": "private-settings.config"', text)
+            for name in ("page.tsx", "rules.ts", "styles.css", "helper.mjs", "package-lock.json", ".npmrc"):
+                self.assertIn(f'"path": "web/{name}"', text)
+            self.assertNotIn("generated.json", text)

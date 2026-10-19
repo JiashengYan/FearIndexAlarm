@@ -261,3 +261,105 @@ artifacts:
 
 remaining: heuristic scans cannot promise zero disclosure. Main Git repository still uninitialized; author metadata/remote identity are not rewritten. Local ignored SDK/cache/runtime/old binary/PDB content may retain machine paths; never upload the whole directory or force-add ignored files. Source publication safety is distinct from separately packaging a release. No cross-device Android runtime/battery guarantees added.
 next_action: before first commit configure a public Git author alias and noreply address, rerun the checker, review staged contents, then create/push only the Git-selected source. Preserve optional private context only locally. Future agents use public AGENTS/PROJECT_STATE and should not copy owner context into new logs.
+
+## W-008 — independent Next.js alarm dashboard with Server Actions
+
+status: closed
+date: 2026-10-19 (UTC)
+last_artifact_verification: 2026-10-19T16:18:13Z
+request: build a polished web alarm in Next.js, calling APIs through Server Actions
+scope: new local web client in this existing repository; no hosted deployment, accounts, cross-device state, native rebuild, staging or commit
+
+decisions_and_behavior:
+- Added independent Next.js16.4.2 / React19.3.1 / TypeScript app. Runtime dependencies only Next/React/ReactDOM; native CSS and SVG provide the responsive Chinese dashboard, gauge, 7/30/90-day history, comparison cards, controls, rules and event list. No external font/images, chart library or UI framework needed.
+- `app/actions.ts` invokes fixed CNN public HTTPS endpoint on the server. `lib/cnn.ts` uses ordinary existing CNN headers, no-store, redirect:error, 20s timeout, 2 MB response limit, explicit failure result. No browser-direct CNN request, arbitrary URL, user credentials, mock-live fallback or server-side user-state disk writes. Next.js Server Functions docs and current registry package versions checked during implementation.
+- `lib/market.ts` ports unchanged shared integer/freshness/order/duplicate rules and validates current/history/comparison values. `lib/monitor.ts` commits baseline and persistent in-page alerts together; repeated/stale/failing records do not advance baseline. Third consecutive request error gives one health notice; success resets. System browser notifications are best effort and do not implement native crash-recovery pending-alert retries.
+- `app/use-monitor.ts` maintains browser-local state, default stopped/900s, initial preview, 60..604800-second settings, one-hour snooze/resume, manual refresh, no overlapping requests or missed-slot burst. Configuration revision rejects a result returned after stop/snooze/settings change. Same-origin Web Locks serialize fetches across tabs when supported; without it only one-tab serialization is promised. Storage errors halt automatic checks without silently overwriting bad records. Enabling starts a new failure streak. Only latest 200 events retained; JSON export and permission/test-notification controls implemented.
+- Browser page and Next.js process must stay running. Background throttling, sleep, browser clock changes, offline/upstream refusal and closed pages cannot guarantee scheduled checks or delivered OS notifications. Page clearly states these limits. Native apps remain independent.
+
+files:
+- New `web/`: package/lock/config, `app/{actions,dashboard,use-monitor,layout,page}.tsx/ts`, icon.svg, globals.css, `lib/{cnn,market,monitor}.ts`, Node built-in test suite and Chinese README. Actual extensions/paths are in source manifest.
+- `.gitignore` excludes node_modules, .next and tsbuildinfo; `web/.npmrc` uses workspace `.tools/npm-cache`.
+- Snapshot tooling includes TS/TSX/CSS/MJS/.npmrc, prunes node_modules/.next; existing publication test extended to verify new sources included and generated files excluded.
+- Root README and PROJECT_STATE describe web scope/commands/limits. Correction to historical state: .git now exists, but historical Windows EXE/ZIP and Android APK are absent in this checkout. W-004/W-007 hashes were not revalidated here. No native source, shared CSV, native user process or native runtime state modified.
+
+commands_and_results (sequential builds/tests):
+- `npm view next version --cache .tools/npm-cache` ->16.4.2; React version query ->19.3.1. Initial environment inherited disabled Node TLS verification; all subsequent installation/server/probe/audit commands explicitly set NODE_TLS_REJECT_UNAUTHORIZED=1, and direct CNN access passed with certificate verification enabled. No global environment setting changed.
+- In `web/`, `npm install --no-audit`: PASS (29 packages); npm cache stayed under workspace. `npm exec --yes --registry=https://registry.npmjs.org --package=prettier@3.6.2 -- prettier --write app lib tests next.config.ts tsconfig.json package.json`: PASS formatting; no additional app dependency.
+- Final `npm test`: PASS30 (23 shared cases +7 parser/transport/monitor tests). Final `npm run build`: PASS Next.js production compile/typecheck/static shell generation; no CNN request needed during build. `npm run typecheck`: PASS.
+- `python -m unittest discover -s tools -p test_*.py`: PASS6 with TEMP/TMP set to workspace `.tools/`; includes manifest inclusion/exclusion regression.
+- `npm audit --omit=dev --audit-level=high` against inherited mirror: HTTP404 unsupported audit API, not a clean result. Retried with `--registry=https://registry.npmjs.org`: PASS zero vulnerabilities.
+- `npm run start -- --port 3000`: final production server loopback-only, HTTP200 confirmed by Invoke-WebRequest. Browser manually refreshed through actual Server Action and showed real CNN score/history; no captured browser warnings/errors after final reload.
+- Direct final-library probe: `node --experimental-strip-types --input-type=module -e "import {fetchMarket} from './lib/cnn.ts'; const r=await fetchMarket(); if(!r.ok){console.log(JSON.stringify(r));process.exitCode=1;}else{console.log(JSON.stringify({ok:true,value:r.data.sample.value,sourceUtc:new Date(r.data.sample.sourceTimeMs).toISOString(),receivedUtc:new Date(r.data.receivedAt).toISOString(),historyPoints:r.data.history.length,tlsValidation:true}));}"` ->PASS; score27.3517857142857/source2026-10-19T16:11:18Z/receive16:16:37.852Z/251 historical points; TLS verification enabled in command environment.
+- Browser QA: desktop and 390px layout visually inspected; mobile scrollWidth375 <= viewport390. Enable establishes baseline; snooze, resume, stop, interval selection, reload persistence and 7-day chart selection observed. Final state stopped/900s. Browser viewport override reset; test tab closed and owned QA server stopped after screenshots. No persistent background service left running.
+- Full-page mobile screenshot timed out; supported viewport capture succeeded. Saved desktop/mobile JPEGs under `artifacts/web-preview-W-008/` (local UI time labels, not public evidence timestamps).
+- `python artifacts/record_web_w008.py`: first packaging attempt found historical native binaries absent after creating ZIP; corrected recorder to report absence, reused and byte-verified every existing ZIP entry, then wrote immutable validation evidence. 21 source files packaged, every archived byte matched final source; no build cache/runtime data included.
+- `python tools/check_public_files.py`: PASS before packaging and final handoff; `git diff --check`: PASS. Source snapshot command `python tools/snapshot_sources.py W-008`.
+
+artifacts:
+- `artifacts/FearIndexAlarm-web-source-W-008.zip` (39245 bytes), SHA256 `0663adbcac597243058ac1b34eb62ba499d27094000def21772a2f8b33026f6f`.
+- Local production build `web/.next`, BUILD_ID `tTc0Z6ZC6rUxm_UM13gqG`; aggregate SHA256 of sorted relative-path/file-hash records `c04fdba3f308079523ca7f79df2944dcc026f6e9b6a8dcc65f0b2a412f3028ab`. Exact build-file identities, screenshot hashes, checks and limits: `docs/agent/evidence/W-008-web-validation.json`. Build hashes identify this local build, not a portable standalone bundle.
+- Final source/docs manifest: `docs/agent/manifests/W-008-sources.json`. Native binaries not present; old native checksum records remain historical.
+
+untested_boundaries:
+- Actual OS notification permission/delivery, browser download completion, multi-tab stress and deterministic in-flight configuration race not exercised end to end. Pure monitor rejection and notification conditions are tested; code guards are not a browser-race proof.
+- No unattended background/closed-page reliability promise, source availability SLA, physical Android run, native regression build or cloud deployment. Shared rule semantics and native sources unchanged, so verification targeted the new web surface.
+
+next_action: from `web/` run `npm run dev` (dependencies installed) or `npm start` (final production build already exists), open loopback port3000, enable monitoring and grant/test browser notifications. For a new checkout use Node22.18+ and `npm ci` first. If closed-page monitoring is desired later, explicitly choose a server scheduler/push architecture; the current web client intentionally relies on an open page.
+
+## W-009 — organize web types, private components and monitoring Hook
+
+status: closed
+date: 2026-10-19 (UTC)
+last_artifact_verification: 2026-10-19T16:34:51Z
+request: improve project structure/readability, separate types and create a `_components` folder; continue the same work after usage-limit interruption
+scope: web structure only; preserve API, rule behavior, storage schema, UI markup/styles and current dependency choices
+
+changes:
+- Added `web/types/market.ts`, `monitor.ts`, `components.ts` for domain types, explicit Hook contract and component props. Renamed ambiguous Event/Monitor types to MonitorEvent/MonitorState. Type-only imports avoid runtime dependencies from the type layer. No re-export/barrel abstraction introduced.
+- Split 949-line `app/dashboard.tsx` into `app/_components/`: dashboard (122 lines), sidebar, market-overview, trend-panel, history-chart, gauge, monitor-settings, event-log, rule-panel, icon. Dashboard owns the single monitoring Hook and composes the page; range, hover, navigation, filter and form state stay with their respective components. Original JSX was extracted with a TypeScript AST script to avoid rewriting large markup manually.
+- Moved Hook to `app/_hooks/use-monitor.ts`, extracted existing time/duration presentation helpers into `lib/format.ts`, updated page entry/imports and web README directory map. Removed only the two superseded original source files after writing extracted files. Core parsing/evaluation/HTTP/persistence/scheduling/error handling and test assertions unchanged.
+- User's exact dependency version edits in package.json and package-lock.json preserved byte-for-byte relative to session start. CSS unchanged; no new dependency. PROJECT_STATE paths/current artifact references updated.
+
+validation_and_commands:
+- Before edits inspected current source, W-008 records, historical VALIDATION, working tree and running Next dev process. Kept pre-refactor source locally under `.tools/refactor-w009/before/`. No Git staging/commit or native rebuild.
+- `python .tools/refactor-w009/extract_types.py`: type extraction. Initial helper named types.py shadowed Python stdlib and failed before edits; renamed helper and reran successfully. `npm --prefix web test` PASS30; `npm --prefix web run typecheck` PASS after type extraction.
+- `node .tools/refactor-w009/components.mjs`: AST component extraction; typecheck PASS. `node .tools/refactor-w009/compare-render.cjs`: PASS exact before/after server-rendered HTML for empty, active, stale, snoozed, request-failure and storage-failure fixtures. Also PASS emitted runtime JavaScript equality for market, monitor, cnn, tests and moved Hook after removing comments/normalizing moved import paths. CSS/package/lock bytes equal baseline. Synthetic checks perform no browser effects or upstream calls.
+- Existing Node suite rerun after component extraction: PASS30 (23 shared CSV cases +7 existing data-flow checks). Assertions unchanged; only type import moved.
+- `npm exec --offline --registry=https://registry.npmjs.org --package=prettier@3.6.2 -- prettier --write app/_components app/_hooks app/page.tsx lib types tests/monitor.test.ts`: PASS. Initial offline mirror lookup had ENOTCACHED; official registry cache worked without adding dependencies. A later type-import formatting warning was fixed; final matching `--check` PASS.
+- Existing user-owned dev server detected and left running. `python .tools/refactor-w009/prepare_build.py` copied final web/shared sources to `.tools/refactor-w009/build`; workspace-local node_modules junction reused installed dependencies. Sequential `npm run build -- --webpack` and `npm run typecheck` in `.tools/refactor-w009/build/web`: PASS. Final build repeated after syncing last type-import formatting and README. No changes to main next.config, package scripts or running dev output. No fresh install performed.
+- Final `node .tools/refactor-w009/compare-render.cjs` PASS; `python tools/check_public_files.py` no findings; `git diff --check` PASS. Existing dev process still running at final inspection.
+- `python .tools/refactor-w009/record.py`: byte-verified staged sources against final web/shared files (except Next-generated next-env.d.ts), packaged and verified all 34 ZIP entries, hashed actual final isolated production build. Source snapshot: `python tools/snapshot_sources.py W-009`; final public scan repeated after snapshot.
+
+artifacts:
+- `artifacts/FearIndexAlarm-web-source-W-009.zip`, 45896 bytes; SHA256 `1e5baf6610ceb12b658ca362520aa805080cf06b58f90db792f961e3d44b3370`.
+- Actual verified build `.tools/refactor-w009/build/web/.next`, BUILD_ID `t9Pa6vpurV30ukbA6izLy`; aggregate SHA256 `ebd0337afca848cf63ce53c7d4a91e112aefcfc93149a064513f2dd98af63d48` over the evidence's sorted relative-path/hash records.
+- Immutable evidence `docs/agent/evidence/W-009-web-structure.json`; final source/docs manifest `docs/agent/manifests/W-009-sources.json`. W-008 archive/screenshots/build hashes remain historical, not this refactor's artifact identities.
+
+boundaries_and_next_action:
+- No new browser interaction/screenshot/OS notification/live API/native tests; markup equivalence is server-rendering evidence, not browser scheduling proof. Default Turbopack production build and clean dependency install not rerun; isolated Webpack build used the existing installed toolchain. No running user service stopped or browser/native runtime data touched.
+- Continue using the existing dev server; future edits go to the responsible component, `_hooks/use-monitor.ts`, `types/` or `lib/`. Before replacing a production build, stop that output's server or use an isolated build. Existing browser-closed and physical Android reliability limits still apply.
+
+## W-010 — tolerate extension-injected body attributes during hydration
+
+status: closed
+date: 2026-10-19T16:39:32Z (UTC)
+request: resolve the reported hydration attribute mismatch on body (`cz-shortcut-listen="true"`)
+
+changes_and_decisions:
+- Source inspection found no application writer for the reported attribute. The Next.js ColorZilla issue report matches this symptom; official hydration documentation lists extension DOM changes as a cause.
+- Added `suppressHydrationWarning` and an explanatory comment only to body in `web/app/layout.tsx`. This is an intentional warning escape hatch at that element; it does not remove injected attributes or recursively suppress child mismatches. Disabling the responsible extension on the site removes the external cause.
+- Updated PROJECT_STATE. No Hook, Server Action, dependency, runtime data or process changes.
+
+validation_and_commands:
+- `npm --prefix web run typecheck`: PASS.
+- `git diff --check`: PASS.
+- `python tools/snapshot_sources.py W-010`: final source/docs manifest.
+- `python tools/check_public_files.py`: final publication-boundary scan.
+
+artifacts_and_boundaries:
+- Source-only delivery. `web/app/layout.tsx` SHA256 `863ded09e152e34ec5c7ad8af9e2cba39393c262b9fba0f5999cf6331c72eb86`.
+- Evidence: `docs/agent/evidence/W-010-hydration.json`; manifest: `docs/agent/manifests/W-010-sources.json`.
+- No production build, ZIP update, live API, browser extension reproduction or native checks. W-009 artifacts remain historical and do not contain this change.
+- References: https://nextjs.org/docs/messages/react-hydration-error and https://github.com/vercel/next.js/discussions/72035 .
+- Next action: reload the development page; disable ColorZilla for the site to eliminate its DOM injection. Browser confirmation remains outstanding.

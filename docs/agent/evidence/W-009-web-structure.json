@@ -1,0 +1,487 @@
+{
+  "worklog": "W-009",
+  "verified_utc": "2026-10-19T16:34:51.358668+00:00",
+  "scope": "Behavior-preserving web structure refactor; no dependency, CSS, native, shared-case, runtime-state or server-process changes",
+  "tests": {
+    "existing_node_tests": "30 passed (assertions unchanged; type import moved)",
+    "render_equivalence": [
+      "empty",
+      "active",
+      "stale",
+      "snoozed",
+      "failure",
+      "storage"
+    ],
+    "core_runtime_equivalence": [
+      "lib/market.ts",
+      "lib/monitor.ts",
+      "lib/cnn.ts",
+      "tests/monitor.test.ts",
+      "app/_hooks/use-monitor.ts"
+    ],
+    "equivalence_method": "React server-rendered markup exact equality for synthetic states; TypeScript emitted JS equality excluding comments and normalizing moved Hook import paths",
+    "css_and_package_files": "byte-identical to session-start backup",
+    "format": "Prettier3.6.2 check passed",
+    "build": "npm run build -- --webpack passed in isolated source copy with installed node_modules junction",
+    "types": "npm run typecheck passed in both checkout and isolated build",
+    "public_scan": "no findings",
+    "git_diff_check": "passed"
+  },
+  "dashboard_lines": {
+    "before": 949,
+    "after": 122
+  },
+  "preserved_existing_dev_server": true,
+  "staged_source_match": "All packaged web/shared sources byte-match isolated build inputs except build-regenerated next-env.d.ts; root .gitignore is packaging-only",
+  "archive": {
+    "path": "artifacts/FearIndexAlarm-web-source-W-009.zip",
+    "bytes": 45896,
+    "sha256": "1e5baf6610ceb12b658ca362520aa805080cf06b58f90db792f961e3d44b3370"
+  },
+  "archive_entries_match_source": true,
+  "archive_files": 34,
+  "build_id": "t9Pa6vpurV30ukbA6izLy",
+  "build_aggregate_sha256": "ebd0337afca848cf63ce53c7d4a91e112aefcfc93149a064513f2dd98af63d48",
+  "build_hash_method": "SHA256 of newline-joined sorted relative-path:sha256 records",
+  "build_files": [
+    {
+      "path": ".tools/refactor-w009/build/web/.next/app-path-routes-manifest.json",
+      "bytes": 132,
+      "sha256": "0e344f5b651d2bcd671f2b26ad593f58682fc5778123223fed12eb2b815ad673"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/build-manifest.json",
+      "bytes": 610,
+      "sha256": "ec861bd98108f12354b48e907b58bb9d66fe5b7f4375571dd4b972b7defbd0b3"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/BUILD_ID",
+      "bytes": 21,
+      "sha256": "28058191bf566edb4cbcb58ca54a1ee75858b0bac9650d7d9753eb7ed6a8a789"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/export-marker.json",
+      "bytes": 111,
+      "sha256": "82356527db218adb95bd1eca0ede6f3391165b38b22d667d064e62e6b539d974"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/images-manifest.json",
+      "bytes": 1193,
+      "sha256": "89153990319006e8e53593d4cee9a741db8a01b9dd8897513bd4e0a4685d2f42"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/next-minimal-server.js.nft.json",
+      "bytes": 2286,
+      "sha256": "204cf563060ee65ee938153d9bd0d63996b979b4a838361b6c1b276b8677f0e0"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/next-server.js.nft.json",
+      "bytes": 2264,
+      "sha256": "5d685f2b96b46a69d3b29bdfeb8990772e746ccb8b90f8ab712d20c58cda9bb4"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/package.json",
+      "bytes": 20,
+      "sha256": "091a04fa67c7907b98e106fcff8b964e13129754fce72d24f3025b97c4887fa3"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/prerender-manifest.json",
+      "bytes": 3458,
+      "sha256": "6dcab7ab2570a2c3fe331bb20f39276846a891a46f925f53f7ec4d33ab037457"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/react-loadable-manifest.json",
+      "bytes": 620,
+      "sha256": "88068b2b7697bd00e33fcabd1a88ddd2af3155c1f0da3a516f696be3c90a7ae3"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/required-server-files.js",
+      "bytes": 10786,
+      "sha256": "7eb7c9f253f537d954115138dd7710b6cf0946772f33e776435200fa3ed33f79"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/required-server-files.json",
+      "bytes": 10757,
+      "sha256": "d3474ad3dc651529cec4c9bb421c61fec25a131f81dab623a9b63dac03326835"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/routes-manifest.json",
+      "bytes": 1714,
+      "sha256": "cdecd89b7de877c9b537023a5573f477444e12d1bb8f65329bf2b2f31cf4eacc"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error/page.js",
+      "bytes": 8034,
+      "sha256": "5254283982fe926d109089ea70c1ce3d670ed193354f19a777b4a4c24eec7625"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error/page.js.nft.json",
+      "bytes": 181,
+      "sha256": "44a31dcaaadde5649c1bfe9834cbd5c198eb267d42a7ac50e0a0fcb325bf56d7"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error/page_client-reference-manifest.js",
+      "bytes": 5424,
+      "sha256": "defceb24dc1ca209d986b1e5ca37b4528d0fb1591204fe9c6f47d81e847b575b"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error.html",
+      "bytes": 9103,
+      "sha256": "5c88bc3d2126b11433f018442b80e4652241c33b4599e67a22c6537ea38354b0"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error.meta",
+      "bytes": 784,
+      "sha256": "9b8d904a303eb2ab75de615148275f9eb4d444da08ca188729e723ce9d7083e9"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error.rsc",
+      "bytes": 4869,
+      "sha256": "1efa76b9c1ed29c8fe5a7b812a70b18304f03bde802ed9b739e7df9ef5b693ba"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error.segments/_full.segment.rsc",
+      "bytes": 4869,
+      "sha256": "1efa76b9c1ed29c8fe5a7b812a70b18304f03bde802ed9b739e7df9ef5b693ba"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error.segments/_global-error/__PAGE__.segment.rsc",
+      "bytes": 4355,
+      "sha256": "4f9e63dc14cd8551694afe80080779be732fad806d1c14c2e8d6cda205c9f38e"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_global-error.segments/_tree.segment.rsc",
+      "bytes": 167,
+      "sha256": "8302840a98a4f2ecb1d01e2c10501aaac04018385ee7741618ba98e48f234749"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found/page.js",
+      "bytes": 4413,
+      "sha256": "6c65bbb2ecbdd05fc49749ce414f4a39dab922595e6a5ec75bcd87d23940ae48"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found/page.js.nft.json",
+      "bytes": 181,
+      "sha256": "44a31dcaaadde5649c1bfe9834cbd5c198eb267d42a7ac50e0a0fcb325bf56d7"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found/page_client-reference-manifest.js",
+      "bytes": 5418,
+      "sha256": "6b39e4e072f495d4fc3c460d5170aeecdbb8803dc40c0985a839c9f302861b70"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found.html",
+      "bytes": 6504,
+      "sha256": "e4fbe97f573327eaffd32639afccb3554cd68fdb5e296237957325931c23f986"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found.meta",
+      "bytes": 766,
+      "sha256": "4b112114c74c5dc53232472280e8b7ed0c236907b5f245e47dd2967d0f2bdef2"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found.rsc",
+      "bytes": 3613,
+      "sha256": "0b907b10fc848d91495ec2c87d9fa6fc97267e5d2c5a42049268cb5fb44656ec"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found.segments/_full.segment.rsc",
+      "bytes": 3613,
+      "sha256": "0b907b10fc848d91495ec2c87d9fa6fc97267e5d2c5a42049268cb5fb44656ec"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found.segments/_not-found/__PAGE__.segment.rsc",
+      "bytes": 3053,
+      "sha256": "695026c710c528c7f9fbec4ee879e1ba1c9e047e2bd79cfe6838a4f48e41d279"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/_not-found.segments/_tree.segment.rsc",
+      "bytes": 217,
+      "sha256": "2d57b15d8ca69ea239fb33c5d5fa9afe9407793be995e32ee6da3d36383319cd"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/icon.svg/route.js",
+      "bytes": 33415,
+      "sha256": "a49981cbe78bb3df093290c8f3ea419e5b259430b5f7c57c7d208ae596e232a9"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/icon.svg/route.js.nft.json",
+      "bytes": 150,
+      "sha256": "032b104d1aa97f1750c4133bf7487e1f18cef3a56047cca35982b6fb9b5d471f"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/icon.svg.body",
+      "bytes": 252,
+      "sha256": "74442e046b3fb9204a22e2a7bd6aa8002dfc21cff99d0312dd9ebbacc2984ad0"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/icon.svg.meta",
+      "bytes": 405,
+      "sha256": "9ec9ba0ae03e74495bfcac4edc2cea84baed269bedc9c045abba1302af543a8c"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/index.html",
+      "bytes": 19545,
+      "sha256": "b35c9bdd960360066d15d1f6acee603d486773fd81aa31ab181020b752701fde"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/index.meta",
+      "bytes": 595,
+      "sha256": "364b5f5dfdd03a659407755e2d891feb1100a3e1242d1753888957d41158c31c"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/index.rsc",
+      "bytes": 3223,
+      "sha256": "44116b5c72156c382abb89906b6f31e0f96aac20add947aa65410391f32b2845"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/index.segments/__PAGE__.segment.rsc",
+      "bytes": 2886,
+      "sha256": "bb64f6b4529a54025f8dd2d68302129e1864accf4795c8e0bb5910a147563fcf"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/index.segments/_full.segment.rsc",
+      "bytes": 3223,
+      "sha256": "44116b5c72156c382abb89906b6f31e0f96aac20add947aa65410391f32b2845"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/index.segments/_tree.segment.rsc",
+      "bytes": 164,
+      "sha256": "451442e5601574aebb5cffec01e3cf23f77c70313dd82c756c0e1b4d0f4f02e5"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/page.js",
+      "bytes": 37989,
+      "sha256": "62e29b40df80115e4064ad4109876bfed9025efc1f38bc546d8306da72de5921"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/page.js.nft.json",
+      "bytes": 190,
+      "sha256": "190143685f8d08127becba0414ea318202b74836e4b464a645fce4995257974d"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app/page_client-reference-manifest.js",
+      "bytes": 5309,
+      "sha256": "60031bf329290ed843a90ad3fa99d13720c95ff520d80523688457fcba41b519"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/app-paths-manifest.json",
+      "bytes": 176,
+      "sha256": "dbd96bee97a7cbd4ce59437624274c49425020f04125f2f5d73f406e2ef476c1"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/chunks/106.js",
+      "bytes": 486977,
+      "sha256": "ece606edd3d80817438dcfee3cc47b188beab77afed8d1df7e64a7a0be145a7e"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/chunks/526.js",
+      "bytes": 207788,
+      "sha256": "dce24e2ef91e81c6a842c2a65899bf48c9dc8f278072756e7b5292ae8488bcd8"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/functions-config-manifest.json",
+      "bytes": 37,
+      "sha256": "e7d9c7de4b1a0e8ed521c8ca071261fb4a0de053afc0040538c0a50e5e4c1ee4"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/interception-route-rewrite-manifest.js",
+      "bytes": 48,
+      "sha256": "fc5133e40acf09e6517b073ddd7b5c0c218d09938848902210f2cc13f08e1c81"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/middleware-build-manifest.js",
+      "bytes": 539,
+      "sha256": "dd33d831214708612fce4356a04946945d0994867612825617930a6659734496"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/middleware-manifest.json",
+      "bytes": 83,
+      "sha256": "0a8520bc7e076f7ae717c2d62713990c83e8a3d74626f327a3844bc0504e210c"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/middleware-react-loadable-manifest.js",
+      "bytes": 620,
+      "sha256": "657c7d6e7959f108388ce6a62ff823d4c39a681c51dac7e4d12b530ee447f4a6"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/next-font-manifest.js",
+      "bytes": 106,
+      "sha256": "2c0f5bbb79d07dfea405146a62d7e15a7a9e890d29e38b7db2631fcf6e480da8"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/next-font-manifest.json",
+      "bytes": 77,
+      "sha256": "926e772d34a53f2a4d9b16071dd6ea77b051b2b7acc49d9165723debe3fbbe0f"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/pages/404.html",
+      "bytes": 6504,
+      "sha256": "e4fbe97f573327eaffd32639afccb3554cd68fdb5e296237957325931c23f986"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/pages/500.html",
+      "bytes": 9103,
+      "sha256": "5c88bc3d2126b11433f018442b80e4652241c33b4599e67a22c6537ea38354b0"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/pages-manifest.json",
+      "bytes": 58,
+      "sha256": "c354059caa217e72bdeb145e351b2038990972872c52df215cb1e4105c35097b"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/prefetch-hints.json",
+      "bytes": 585,
+      "sha256": "f28a09d702d13deeca0b87253a959ccdf6880a5a430f865b63f372242f9a9221"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/preview-props.json",
+      "bytes": 250,
+      "sha256": "a5013e19ac44b2e8811a64c03d404989afd946c006d053a99ef5bd22aad8d56f"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/server-reference-manifest.js",
+      "bytes": 399,
+      "sha256": "bd647e903d67d6e0ceda14dabce5bcb599d8157c3c3366fd62b2e2b95282f0c0"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/server-reference-manifest.json",
+      "bytes": 324,
+      "sha256": "c6c5be29b7e49da776f334e169f8096da1ff5f3989e357b456669cd95957d6a4"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/server/webpack-runtime.js",
+      "bytes": 1438,
+      "sha256": "68835a826bab0ddef47e9a0008c6625f0916f56f3e2f71f7b1de64929b20757b"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/01bd2b7e-677496bfc955ed9c.js",
+      "bytes": 203721,
+      "sha256": "6fbb4408d4f9100a725eea9ea6f1d2c5778050ca68145b9ab4a8585acab172f0"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/107.270c2475a6904a19.js",
+      "bytes": 5174,
+      "sha256": "c6ed15acb08a108b45b690f49afe5e04d524f4cf4e70d016124e3ea7776e2ef4"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/51fb5cd8-bd6681191b8f5ceb.js",
+      "bytes": 25387,
+      "sha256": "13fe52a31c9d430657d2038d96f2460dd68ae3883c44c8dbd2fbfbde61bb7883"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/54.1b7d80438dce4072.js",
+      "bytes": 1111,
+      "sha256": "5113afacb18f81563c78bba156a35376bcb55284f423bfa9530d52526f442dc8"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/5740ff97-06aa1a3e5891d8d8.js",
+      "bytes": 926374,
+      "sha256": "2f570ea02d8c410eb6b8178bb3b4e1224e0cba713fed9fd0a3f26f2ca920d888"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/744-32b0af0c81ac2429.js",
+      "bytes": 310708,
+      "sha256": "39bbca36bb6879e87970efc76998d03db2e7334dccb63c7ba2f07fdfb97bd911"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/996.b561663416fe099d.js",
+      "bytes": 511,
+      "sha256": "28beccc7c04cf5e4895c6e10ce03392980a6a4e8fd6cbffec10af96316a3314a"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/app/_global-error/page-76a41a6ec548b097.js",
+      "bytes": 155,
+      "sha256": "671933aea04442449e37675a119d294b9e08e2d5135d60a529dd4a9b6b9bb075"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/app/_not-found/page-82e445fc06f774d6.js",
+      "bytes": 2886,
+      "sha256": "1b5ccce4765c41eca89e383e631a3b712772517be1d809d2221deab92f89eb9c"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/app/layout-279d77e875f8e480.js",
+      "bytes": 203,
+      "sha256": "b18ed7d45d21bcdbba45e531e8194b7ae3b0988d2b73888adef2e1f6cb02a45a"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/app/page-cc224dc43f6a3c6e.js",
+      "bytes": 32916,
+      "sha256": "14b9d4566258a183b8d8ea8a68d5563f465d34d0a68eafa7e611e0ae1dcd3796"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/framework-1ff84d6f94931f98.js",
+      "bytes": 218916,
+      "sha256": "cd5da2c1aa1ed8b01acd9e15df7b10c12aaf6bc3a1a388516c6979caea0481c1"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/main-app-ec516940d8b4665e.js",
+      "bytes": 522,
+      "sha256": "84d9aa0c81ae6a5da49e1ea9227afbf20f7b287b3b71dcdca03aa9d18bc85c5e"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/main-f631f5a2a7c874e4.js",
+      "bytes": 162318,
+      "sha256": "8ced20817a5d6266e6454eab4894bc8c1ef00a4b07f6c17c47d8dcd2bc622978"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/next/dist/client/components/builtin/app-error-76a41a6ec548b097.js",
+      "bytes": 155,
+      "sha256": "671933aea04442449e37675a119d294b9e08e2d5135d60a529dd4a9b6b9bb075"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/next/dist/client/components/builtin/forbidden-76a41a6ec548b097.js",
+      "bytes": 155,
+      "sha256": "671933aea04442449e37675a119d294b9e08e2d5135d60a529dd4a9b6b9bb075"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/next/dist/client/components/builtin/global-error-d1b23b0e05210b63.js",
+      "bytes": 187,
+      "sha256": "ce7a7891023176a3ecbd019b18921199893fa3d5cfd858e669ed0dce2a33f179"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/next/dist/client/components/builtin/not-found-76a41a6ec548b097.js",
+      "bytes": 155,
+      "sha256": "671933aea04442449e37675a119d294b9e08e2d5135d60a529dd4a9b6b9bb075"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/next/dist/client/components/builtin/unauthorized-76a41a6ec548b097.js",
+      "bytes": 155,
+      "sha256": "671933aea04442449e37675a119d294b9e08e2d5135d60a529dd4a9b6b9bb075"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/polyfills-42372ed130431b0a.js",
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/chunks/webpack-6376844b790bd908.js",
+      "bytes": 3460,
+      "sha256": "663685610e12a793071fc1b693e7035075431beec207b1f331fff30230e45b70"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/css/1a0b74dcc97fc0c0.css",
+      "bytes": 23971,
+      "sha256": "0c65201d0de055b7400c8280017041e501f186f5f335e5771a593ccba8edb719"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/t9Pa6vpurV30ukbA6izLy/_buildManifest.js",
+      "bytes": 478,
+      "sha256": "15f6561eb2e8622fbf0114cf795ac84932e8839cdcaee6098286d9e13a36936a"
+    },
+    {
+      "path": ".tools/refactor-w009/build/web/.next/static/t9Pa6vpurV30ukbA6izLy/_ssgManifest.js",
+      "bytes": 80,
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+    }
+  ],
+  "not_retested": [
+    "Browser interactive flows and screenshots",
+    "Actual OS notifications",
+    "Live upstream API",
+    "Default Turbopack production build",
+    "Clean dependency installation",
+    "Native builds and physical Android reliability"
+  ],
+  "source_manifest": "docs/agent/manifests/W-009-sources.json"
+}
