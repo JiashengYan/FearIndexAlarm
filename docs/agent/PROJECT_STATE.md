@@ -1,15 +1,16 @@
 # PROJECT_STATE
 
-updated: 2026-10-17
-latest_worklog: W-007 (closed; public-source privacy redaction and local-only owner context)
+updated: 2026-10-19
+latest_worklog: W-010 (body-only hydration warning compatibility for browser extension attributes)
 purpose: agent resume context; not end-user documentation
 root: .
-version_control_at_last_inspection: no .git repository; do not infer commits from worklog IDs
+version_control_at_last_inspection: .git repository exists at W-008 inspection; no commit/staging/publication performed in W-008; do not infer commits from worklog IDs
 
 ## Accepted scope
 
 - Local numeric-indicator monitoring, initially CNN Fear & Greed. User values small runtime/system burden; after discussing CNN delay/polling tradeoffs, user explicitly chose a 15-minute default for this task (W-004). Minute-scale checks remain manually configurable.
-- Windows 11 x64 and Android independently fetch, evaluate, store state and notify. No shared task list, synchronization, server, remote runner, account or collaborative operation.
+- Windows 11 x64 and Android independently fetch, evaluate, store state and notify. W-008 explicitly adds an independent Next.js web client and local API server. No shared task list, state synchronization, remote runner, account or collaborative operation; native clients do not depend on the web server.
+- W-008 web scope: user requested Next.js, API calls via Server Actions, polished UI. Source in `web/`, local-only delivery, no hosting/account/cloud deployment. Next.js16.4.2 + React19.3.1 + TypeScript; Node22.18+ recommended. Server-side fixed CNN fetch; browser-local settings/baseline/history/events, monitoring only while page and server are running. Defaults off/900s. Existing C#/Kotlin rules and CSV remain unchanged.
 - New task definitions/provider extraction/complex rules may be edited in PC source then recompiled; a generic runtime task editor or script/plugin engine is unnecessary.
 - Runtime controls: enable/disable, interval (60..604800 seconds, CNN default 900), snooze one hour/resume, start/stop/force check, log export. 86400 seconds is an interval, not local wall-clock calendar scheduling. Existing saved intervals are preserved; default changes do not migrate or overwrite them.
 - Android target: API 26+ device, APK sideloading permitted; exact device/system details are local-only. User considers background polling frequency critical. Actual reliability has NOT been proven on a physical device.
@@ -19,6 +20,17 @@ version_control_at_last_inspection: no .git repository; do not infer commits fro
 - Prior cleanup W-006: canonical executable is only artifacts/windows/FearIndexAlarm.exe (W-004); keep matching Windows ZIP and latest Android APK. Older/duplicate Windows directories and generated previews removed. Windows artifacts remain unchanged by W-007; Android v0.2.1 is rebuilt only for generic UI text/version.
 
 ## Current implementation / map
+
+Web (W-008 implementation, W-009 structure):
+- W-010: `web/app/layout.tsx` uses `suppressHydrationWarning` on body to tolerate extension-injected attributes such as ColorZilla's `cz-shortcut-listen`. This suppresses warnings at that element, not extension injection or descendant mismatches. Typecheck passed; no browser extension reproduction or production rebuild. W-009 build/ZIP remain historical artifacts and exclude this change; W-010 source manifest/evidence identify the current source.
+- `web/app/actions.ts` exports `readMarketAction` with `use server`; fixed public CNN HTTPS fetch in `web/lib/cnn.ts`, no caller URL/user state/credentials, no-store, redirect:error, 20s timeout, 2 MB body cap. Returns typed success/error; no fake-data fallback. Build has no upstream dependency. Latest live Next.js browser request succeeded; future upstream access not guaranteed.
+- `web/lib/market.ts` ports existing displayed-integer/freshness/order/duplicate rules and validates CNN current/history/comparisons. `web/lib/monitor.ts` validates persisted state and computes bounded events (200). Node built-in test suite runs all existing 23 shared CSV cases plus 7 transport/parser/state tests.
+- `web/app/_hooks/use-monitor.ts`: localStorage `fear-index.web.v1`, default stopped/900s, initial preview read, one request at a time, periodic best-effort checks, no burst catch-up, 60..604800s interval, snooze/resume. Reload preserves settings/baseline/events; configuration revision invalidates in-flight results. Web Locks serializes requests across same-origin tabs when available, storage events update their views; fallback only serializes within a tab. Local storage failure/corruption stops auto checks without overwriting bad data. Enabling starts a new request-error streak.
+- Baseline + in-app alert commit together before attempting browser Notification. Third consecutive request failure produces one health notice, successful fetch resets. Browser alerts are best effort with no crash-recovery OS notification retry; in-app alert log persists. Notification permission requires user gesture. No service worker, background job, push backend, audio dependency, synchronization or account. Browser background throttling, sleep, closed page, stopped server and clock errors remain limitations.
+- `web/app/_components/dashboard.tsx` composes sidebar, market overview, trend/chart, settings, rule panel and event log from sibling files. Dashboard is the client boundary and owns the single monitoring Hook; navigation/filter/range/form state lives in its owning component. Gauge and icons are separate SVG components. `app/globals.css` unchanged. `lib/format.ts` contains time/interval display helpers. UI behavior, class names, layout and source/received time semantics remain W-008.
+- `web/types/{market,monitor,components}.ts`: domain data, MonitorState/MonitorEvent/MonitorSettings/MonitorUpdate/MonitorController, and component props. Type-only imports; no implementation dependency from the types layer and no barrel modules. W-009 changes structure only; rules, localStorage schema, source fetching, notifications and scheduling emit identical runtime code after normalizing moved import paths. Tests change only type imports.
+- `web/package-lock.json` pins dependency resolution; `.npmrc` keeps npm cache under workspace `.tools/`. `.gitignore` excludes node_modules/.next/tsbuildinfo. Snapshot tooling now includes TS/TSX/CSS/MJS/.npmrc and prunes generated web directories. Web README documents run/test/limits.
+- Commands from `web/`: `npm ci`; `npm run dev` (loopback only) or sequential `npm run build`, `npm start`; `npm test`; `npm run typecheck`. W-009 preserves an existing user-owned dev server and validates an isolated source copy at `.tools/refactor-w009/build/web` with `npm run build -- --webpack` and existing installed dependencies. Default Turbopack production build and clean dependency installation were not repeated. Current source ZIP: `artifacts/FearIndexAlarm-web-source-W-009.zip`; W-008 ZIP/build identities are historical. See `docs/agent/evidence/W-009-web-structure.json` for final build/source identities and verification boundaries. No package/lock changes or native changes in W-009.
 
 Windows:
 - `windows/FearIndexAlarm.Core/`: net10.0 C# rule/data/state/monitor library, reusable HttpClient, monotonic scheduling, JSON state + rotating JSONL logs.
@@ -96,6 +108,8 @@ python tools/analyze_timing.py path-to-export.jsonl --expected-seconds 60
 Network/sandbox permissions can differ across sessions. Previous build/test/bootstrap prefixes were approved; re-check current permissions instead of assuming external access. Do not install system-wide SDKs or alter PATH.
 
 ## Artifacts / runtime data
+
+- W-008 checkout inspection correction: the historical Windows EXE/ZIP and Android APK paths below are NOT present in this checkout. Their W-004/W-007 hashes remain historical records, not freshly verified available artifacts. W-008 changed no native source and did not build/copy/delete native outputs; its deliverables are the web source ZIP and local `.next` build only.
 
 - Android `artifacts/FearIndexAlarm-debug.apk`, package com.fearindexalarm, debug-signed validation build. Release signing/key lifecycle not implemented.
 - W-007 latest Android: versionName 0.2.1 / versionCode 3, APK SHA256 `67F6DA09532F8ABACBBF969C3C970ECAFE109629E07349B53A8430FD5681B75B`. Evidence `docs/agent/evidence/W-007-publication.json`; source snapshot `docs/agent/manifests/W-007-sources.json`. W-005 APK hash is historical. Windows artifacts unchanged at W-004.

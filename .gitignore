@@ -9,6 +9,9 @@ android/local.properties
 *.log
 .idea/
 __pycache__/
+node_modules/
+.next/
+*.tsbuildinfo
 
 # Local-only owner context. Public agent instructions remain in AGENTS.md.
 /[aA][gG][eE][nN][tT].[mM][dD]

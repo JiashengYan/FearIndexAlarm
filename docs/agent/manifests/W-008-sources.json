@@ -1,0 +1,373 @@
+{
+  "schema": 1,
+  "worklog": "W-008",
+  "created_utc": "2026-10-19T16:19:21.492139+00:00",
+  "hash_algorithm": "SHA-256",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 619,
+      "sha256": "3fb94861e882d24c04950855f89252b7fb52f7c1c0b42e75f130fbcbfca18d15"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 4935,
+      "sha256": "12f51d22f936ddff2b4d9346176002a0dd16f372b58d0a112781e0e19739e882"
+    },
+    {
+      "path": "Directory.Build.props",
+      "bytes": 187,
+      "sha256": "a19eb5acf6b83e553c8be56858f73ecbfc5d32972358c0e9964111c20a977fb0"
+    },
+    {
+      "path": "NuGet.Config",
+      "bytes": 188,
+      "sha256": "fae218551877a12f84ca397ea85169233b58e3690af302ab549e7b27094fbd0b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 14813,
+      "sha256": "79777708a3eba32040cea343d9d2b87f7fc31e298d7f3993d1519447a876ab45"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 1818,
+      "sha256": "8f61b10d2b1c0de5885266a5fc4c078e171ceebda136d6f555de98cb67a1544f"
+    },
+    {
+      "path": "WORKLOG.md",
+      "bytes": 37728,
+      "sha256": "60f9f130957c2e0547e651175a7de201dd7c71d20dcc7b79a8d671b6e5645914"
+    },
+    {
+      "path": "android/app/build.gradle.kts",
+      "bytes": 686,
+      "sha256": "375ef0c475b3b8e97b616083022da33b721f14250858d6ecdaf96aad6768e39c"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "bytes": 2310,
+      "sha256": "bb1fa5670c8717e2f7fec44d9dc6c46e12ebed96817312574b02453cc062c303"
+    },
+    {
+      "path": "android/app/src/main/java/com/fearindexalarm/CnnClient.kt",
+      "bytes": 2501,
+      "sha256": "2ae9f5b29af6ac39763cafabc1b0e61d09d149ed626049ffce0a8df6099aa5d1"
+    },
+    {
+      "path": "android/app/src/main/java/com/fearindexalarm/MainActivity.kt",
+      "bytes": 10676,
+      "sha256": "7dfd0fc5c47e17e8bde8406cceef88ae03512ef81c38a1c1a667b53ab8e5d227"
+    },
+    {
+      "path": "android/app/src/main/java/com/fearindexalarm/MonitorAlarm.kt",
+      "bytes": 4340,
+      "sha256": "d533fd49d181e5c21f52f24d58097b34d5e1bb8eccdc71724f00f73fe7176aa2"
+    },
+    {
+      "path": "android/app/src/main/java/com/fearindexalarm/MonitorRules.kt",
+      "bytes": 2005,
+      "sha256": "c800813e048ccd16c7a8ade63b93b8df92e8056de5d1ec098e9415884c5397a3"
+    },
+    {
+      "path": "android/app/src/main/java/com/fearindexalarm/MonitorSchedule.kt",
+      "bytes": 928,
+      "sha256": "093caca03cf7117ae40d0250c1441e8145d601903c5a1eca10d7c8dd6ffc7226"
+    },
+    {
+      "path": "android/app/src/main/java/com/fearindexalarm/MonitorService.kt",
+      "bytes": 12714,
+      "sha256": "2af6470c36e773499cedbf1106fb16bbb1450d472eaa909f75f0a02ab328b821"
+    },
+    {
+      "path": "android/app/src/main/java/com/fearindexalarm/StateStore.kt",
+      "bytes": 6715,
+      "sha256": "6733a48a0862cd4ed8ea4aca06e1dff5ca0ce1d4ca858e5436dea8d432bf5f81"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_monitor.xml",
+      "bytes": 410,
+      "sha256": "1390d7efb77d32aa7b00f552fe8ff029f2866e25483f1c16ab0241b58e1bce98"
+    },
+    {
+      "path": "android/app/src/main/res/xml/data_extraction_rules.xml",
+      "bytes": 607,
+      "sha256": "fe91fa225dabac924dce842c90608ae61da2f6bdc0f0fca1c5abf6b6ef53bda7"
+    },
+    {
+      "path": "android/app/src/test/java/com/fearindexalarm/CnnClientTest.kt",
+      "bytes": 572,
+      "sha256": "11f00767e94ae1d855c91e8458fc7618ae7d9551becb07bf556aaa51019855c1"
+    },
+    {
+      "path": "android/app/src/test/java/com/fearindexalarm/MonitorRulesTest.kt",
+      "bytes": 1503,
+      "sha256": "1453e2053de26a8dcc0c6b43c56e22b15834b6b79adfd85f29990207c076463c"
+    },
+    {
+      "path": "android/app/src/test/java/com/fearindexalarm/MonitorScheduleTest.kt",
+      "bytes": 1785,
+      "sha256": "e352fef62e1befb8b0adc7590d089da83f5e4330c560d60e4fa7796bf940f2e9"
+    },
+    {
+      "path": "android/build.gradle.kts",
+      "bytes": 146,
+      "sha256": "1975118f3510bd4c8ab38391245466fd09b39301597ed8789a3caaf0690deb28"
+    },
+    {
+      "path": "android/gradle.properties",
+      "bytes": 167,
+      "sha256": "bf48562e12b8144d39aeeec27fd2a2387d58d1f1e771cbe29e32be26469b16c3"
+    },
+    {
+      "path": "android/settings.gradle.kts",
+      "bytes": 296,
+      "sha256": "eba181b2f7d58b636a8a3e2eea088f37364e119b840fbab34deff4a83e113c9f"
+    },
+    {
+      "path": "bootstrap.ps1",
+      "bytes": 4165,
+      "sha256": "8d0616f2189b3fe48d0a667fcd0d56f05f1258aa33bb6c410e308112c771f815"
+    },
+    {
+      "path": "build.ps1",
+      "bytes": 1751,
+      "sha256": "95471efcea7e44be5e96601445c8c9e4aa388730a4149f0002350a7b1a016a65"
+    },
+    {
+      "path": "docs/agent/PROJECT_STATE.md",
+      "bytes": 25854,
+      "sha256": "ae706331d692c5b08f02cd9e71f9d44b3ebecc58dc1791480eab3f858880c7ac"
+    },
+    {
+      "path": "shared/cnn-response.json",
+      "bytes": 143,
+      "sha256": "5fbf098d13a0bd8299311c230f637a6245a35c05e54c9c823ffe9f8efa00ce12"
+    },
+    {
+      "path": "shared/rule-cases.csv",
+      "bytes": 1399,
+      "sha256": "15944f0c6535fd52f55a14f5bf4a04802093d4a4cee4e252175ffe9187b57a68"
+    },
+    {
+      "path": "test.ps1",
+      "bytes": 1588,
+      "sha256": "e9ea33233ed098e4079e067b0c3f1ae467727faa807be1280016a29281e03ab4"
+    },
+    {
+      "path": "tools/analyze_timing.py",
+      "bytes": 3028,
+      "sha256": "e7597db7ea4fc2e4053a515f4f42b5e8f8a66051aac4485397b80e94e8a12ee5"
+    },
+    {
+      "path": "tools/check_public_files.py",
+      "bytes": 5896,
+      "sha256": "404bab94e34da7e594b9b5533e91bcc3e24d6f3d13a84a26a19094ba2b73dd72"
+    },
+    {
+      "path": "tools/generate_windows_icon.py",
+      "bytes": 5270,
+      "sha256": "e6dc7ada9cc1c055c0f824483e70bc05a6a6a380dc097a16c5205314ffd1bfc2"
+    },
+    {
+      "path": "tools/probe_cnn_timing.ps1",
+      "bytes": 2076,
+      "sha256": "ffe5ec7e8b8b8de8d65129e898bb98c46817b0a75980b4d4f883269e53f6cdc3"
+    },
+    {
+      "path": "tools/render_windows_preview.ps1",
+      "bytes": 705,
+      "sha256": "b5fd269a72993f1b45b68260706162564dc66e500c7c9e6209f78cca672b5075"
+    },
+    {
+      "path": "tools/snapshot_sources.py",
+      "bytes": 2641,
+      "sha256": "f8a80bc603b1a90dc745aa4d89d0cccc35e26d706e919b52c48a1774c2f89224"
+    },
+    {
+      "path": "tools/test_analyze_timing.py",
+      "bytes": 1659,
+      "sha256": "27fa5e4694618b89e51162d1bba9c8e8201e312f1eef8b46fcca27a0462bc25c"
+    },
+    {
+      "path": "tools/test_public_files.py",
+      "bytes": 4401,
+      "sha256": "9d82c55815e9715c43ae7a0f98bbee01d550bc92cf69afab78a0979d97a6426c"
+    },
+    {
+      "path": "tools/windows-preview/Program.cs",
+      "bytes": 3644,
+      "sha256": "67e4ad973dc17240393a0308ff3084c5002ece2818d73274a4e3ebb5ad6a8b3c"
+    },
+    {
+      "path": "tools/windows-preview/WindowsPreview.csproj",
+      "bytes": 407,
+      "sha256": "8d7501a7cd2e1bd2ba489522f5b48536dea8b330daa2668421dfa8999cdfbe9a"
+    },
+    {
+      "path": "web/.npmrc",
+      "bytes": 37,
+      "sha256": "90c6c6fa2a50fc20a699f2811569b96ee05d2c5c3a37cafbbaa77948eb478d4e"
+    },
+    {
+      "path": "web/README.md",
+      "bytes": 4709,
+      "sha256": "9a3523f707b93a5f0dc72373a7ee4047d95c488531aea4486cfd5a67986686da"
+    },
+    {
+      "path": "web/app/actions.ts",
+      "bytes": 210,
+      "sha256": "c90993fe0ce8c51598db6bb9436e30cfa12e003ed54a99129f07e2f90f1ae416"
+    },
+    {
+      "path": "web/app/dashboard.tsx",
+      "bytes": 33792,
+      "sha256": "347683d838939531af1803f428af3961881f01bc1974f96a138bfe949bcb61ba"
+    },
+    {
+      "path": "web/app/globals.css",
+      "bytes": 30572,
+      "sha256": "cd6be2e0531dd0b2d069472699bea86781a282defc264cfc766489db9d4bc1d5"
+    },
+    {
+      "path": "web/app/icon.svg",
+      "bytes": 252,
+      "sha256": "74442e046b3fb9204a22e2a7bd6aa8002dfc21cff99d0312dd9ebbacc2984ad0"
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "bytes": 437,
+      "sha256": "1af12579dda62be68f58ceb41e914e3e327f7365cad76d61e5c02738646675ff"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "bytes": 97,
+      "sha256": "b0062e6ae27c203a46e3fc61068ad6cd635ae80e606c30e6c34eeb6aa3738a19"
+    },
+    {
+      "path": "web/app/use-monitor.ts",
+      "bytes": 7624,
+      "sha256": "4f4356cb6e079d2f22b46dd1cd8525f80d9330d7d4bf0e1bd57f425dc55f057b"
+    },
+    {
+      "path": "web/lib/cnn.ts",
+      "bytes": 1758,
+      "sha256": "7ec9a364e04455221947c0a25e7f6678baa024574ea0817f07ba8f647e1fe6cd"
+    },
+    {
+      "path": "web/lib/market.ts",
+      "bytes": 4183,
+      "sha256": "267280b9873dee6a502967d45f4637983e12497fea8f1b0f6d02b1e12dc86fbd"
+    },
+    {
+      "path": "web/lib/monitor.ts",
+      "bytes": 3987,
+      "sha256": "298c115ac4e0f2cec559a1d7e2beec3b2c6d8a47a777b0bac7afc9a3b781159e"
+    },
+    {
+      "path": "web/next-env.d.ts",
+      "bytes": 288,
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "web/next.config.ts",
+      "bytes": 119,
+      "sha256": "0af5af8b97ba856eaca00c26794027c5a5dd71d85b800ce4614cf18c9cbb5efb"
+    },
+    {
+      "path": "web/package-lock.json",
+      "bytes": 33595,
+      "sha256": "0611447657bde38b6de4519c6897cf8928cb4b42d20af92853abda6ef1140421"
+    },
+    {
+      "path": "web/package.json",
+      "bytes": 586,
+      "sha256": "ab0fdcba2660559605ba8833965de5605e70caf65e89971f285a929a5eb03387"
+    },
+    {
+      "path": "web/tests/monitor.test.ts",
+      "bytes": 6496,
+      "sha256": "5c7c63832a07c85c1e966bde3b63557ba5cf34af3f43cebc9f79ca8e70000823"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "bytes": 621,
+      "sha256": "6293751f26970c56b693fb35849b87c267c6059f9599b45c662e49939df688a5"
+    },
+    {
+      "path": "windows/FearIndexAlarm.Core/CnnClient.cs",
+      "bytes": 2702,
+      "sha256": "d7a551181540f48be63c8910b7e89be920ffeb7ae271c075766301a04b9b9c99"
+    },
+    {
+      "path": "windows/FearIndexAlarm.Core/FearIndexAlarm.Core.csproj",
+      "bytes": 212,
+      "sha256": "c5fc3eb64ae56fc55eaf04c20e143c231a8eafbfc5a6bd797f140931bf8e2dbf"
+    },
+    {
+      "path": "windows/FearIndexAlarm.Core/MonitorEngine.cs",
+      "bytes": 6610,
+      "sha256": "10bdfc6ac26550edf458890b807771740a80373877fcd42de035f77f573321ce"
+    },
+    {
+      "path": "windows/FearIndexAlarm.Core/MonitorRules.cs",
+      "bytes": 1870,
+      "sha256": "21088613026ccc0c38c7ee71eda27a344e7781ae17b85e46e6eccda8fda042ec"
+    },
+    {
+      "path": "windows/FearIndexAlarm.Core/StateStore.cs",
+      "bytes": 2111,
+      "sha256": "8f6f8b77ba3d9f08b085bf36e5b9664c7d6c7d3784c1be6c4d5d9180dab7e83e"
+    },
+    {
+      "path": "windows/FearIndexAlarm.Tests/FearIndexAlarm.Tests.csproj",
+      "bytes": 479,
+      "sha256": "33ce8cdedf23037ee0d69fa835cbc149d1975896fd3481d3f113a8f05fbc870d"
+    },
+    {
+      "path": "windows/FearIndexAlarm.Tests/Program.cs",
+      "bytes": 4380,
+      "sha256": "a2ec0e8f1a5718e2d3b4c933e3323284e16619f4a3790f32e08664de15dcd531"
+    },
+    {
+      "path": "windows/FearIndexAlarm/AppIcon.cs",
+      "bytes": 586,
+      "sha256": "db2701e5aa0f5a132ce9ed2849e4b7f2cc6906ac3fa317de95234819c4de8335"
+    },
+    {
+      "path": "windows/FearIndexAlarm/Assets/stock-alert.ico",
+      "bytes": 34759,
+      "sha256": "63157e0d8b5e9106b0c580d5b1a043320191be22c5fbcb253892162869e127f6"
+    },
+    {
+      "path": "windows/FearIndexAlarm/Assets/stock-alert.png",
+      "bytes": 13472,
+      "sha256": "7162705d2387d3a334d4c09e304706db4aec96e474a844c7e741a48b51e76bb3"
+    },
+    {
+      "path": "windows/FearIndexAlarm/Assets/stock-alert.svg",
+      "bytes": 1104,
+      "sha256": "6da068e9e1f2efc6845f8c9cc4ec83f84a58e0f4fb093accc4cdcacd4907fcb6"
+    },
+    {
+      "path": "windows/FearIndexAlarm/FearIndexAlarm.csproj",
+      "bytes": 667,
+      "sha256": "2394efbdfe46cc39394f169e59935e3ac7d53ca2b85d4bee973fec2d501b2a60"
+    },
+    {
+      "path": "windows/FearIndexAlarm/MainForm.cs",
+      "bytes": 10934,
+      "sha256": "d81ddba084446db9a630a85b940533f9558c14ae5eed40f917e2a73e7458961e"
+    },
+    {
+      "path": "windows/FearIndexAlarm/Program.cs",
+      "bytes": 2919,
+      "sha256": "276f1964e1ad28b790a0b6e74d028f712643febe9ea7915917ef7599c548efbc"
+    },
+    {
+      "path": "windows/FearIndexAlarm/app.manifest",
+      "bytes": 558,
+      "sha256": "f3869741c080d02b93e96664d9ddeebf2f797776e0f758b81039beb961482e58"
+    }
+  ]
+}

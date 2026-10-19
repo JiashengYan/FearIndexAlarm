@@ -9,9 +9,9 @@ from check_public_files import git_files
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRECTORIES = {".tools", ".git", ".gradle", ".kotlin", ".idea", ".vs", ".vscode", ".codex", ".agents", ".aws", ".ssh", "artifacts", "bin", "obj", "build", "__pycache__", "manifests", "evidence"}
+SKIP_DIRECTORIES = {".tools", ".git", ".gradle", ".kotlin", ".idea", ".vs", ".vscode", ".codex", ".agents", ".aws", ".ssh", "artifacts", "bin", "obj", "build", "__pycache__", "manifests", "evidence", "node_modules", ".next"}
 SKIP_FILES = {"agent.md", "credentials.json", "secrets.json", "key.properties", "keystore.properties"}
-EXTENSIONS = {".py", ".ps1", ".cs", ".csproj", ".props", ".config", ".manifest", ".kt", ".kts", ".xml", ".properties", ".csv", ".json", ".svg", ".ico", ".png", ".md"}
+EXTENSIONS = {".py", ".ps1", ".cs", ".csproj", ".props", ".config", ".manifest", ".kt", ".kts", ".xml", ".properties", ".csv", ".json", ".svg", ".ico", ".png", ".md", ".ts", ".tsx", ".mjs", ".css"}
 
 
 def main():
@@ -30,7 +30,7 @@ def main():
             path = Path(directory) / name
             if path.relative_to(ROOT).as_posix() not in public_paths:
                 continue
-            if path.suffix.lower() not in EXTENSIONS and name != ".gitignore":
+            if path.suffix.lower() not in EXTENSIONS and name not in {".gitignore", ".npmrc"}:
                 continue
             data = path.read_bytes()
             records.append({"path": path.relative_to(ROOT).as_posix(), "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()})

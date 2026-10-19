@@ -1,0 +1,19 @@
+{
+    "worklog":  "W-010",
+    "verified_utc":  "2026-10-19T16:39:32.3521249Z",
+    "source":  "web/app/layout.tsx",
+    "sha256":  "863ded09e152e34ec5c7ad8af9e2cba39393c262b9fba0f5999cf6331c72eb86",
+    "validation":  [
+                       "npm --prefix web run typecheck: PASS",
+                       "git diff --check: PASS"
+                   ],
+    "boundaries":  [
+                       "Source-only delivery; no new production build or ZIP.",
+                       "No browser reproduction with ColorZilla; suppression is limited to the body element.",
+                       "Existing runtime state and processes untouched."
+                   ],
+    "references":  [
+                       "https://nextjs.org/docs/messages/react-hydration-error",
+                       "https://github.com/vercel/next.js/discussions/72035"
+                   ]
+}
